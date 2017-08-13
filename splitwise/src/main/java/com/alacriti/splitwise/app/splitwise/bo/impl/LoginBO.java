@@ -12,15 +12,16 @@ public LoginBO(Connection connection) {
 LoginBO(){}
 
 
-public void checkUserLoginBO(LoginModel userLoginVO) throws DAOException, BOException{
+public void userLogin(LoginModel userLoginVO) throws DAOException, BOException{
 	
 	try {
 		LoginDAO userDAO =new LoginDAO(getConnection());
-		userDAO.checkUserLoginDAO(userLoginVO);
+		userDAO.userLogin(userLoginVO);
 		
 	} catch (Exception e) {
 		System.out.println("Exception in retrieveMessage " + e.getMessage());
 		throw new BOException();
 	}
-}	
+}
+
 }

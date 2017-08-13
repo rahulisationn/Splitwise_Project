@@ -7,15 +7,15 @@ import java.sql.SQLException;
 
 import com.alacriti.splitwise.app.splitwise.model.vo.RegistrationModel;
 
-public class RegistrationDAO extends BaseDAO{
+public class RegisterDAO extends BaseDAO{
 	
-	public RegistrationDAO(Connection conn) {
+	public RegisterDAO(Connection conn) {
 		super(conn);
 	}
-	public RegistrationDAO(){
+	public RegisterDAO(){
 		
 	}
-	public String getUserRole(RegistrationModel userVO) throws DAOException {
+	public String userRegister(RegistrationModel userVO) throws DAOException {
 		
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -36,7 +36,7 @@ public class RegistrationDAO extends BaseDAO{
 			msg="success";
 			}	
 		catch(SQLException e) {
-			System.out.println(e.getMessage()+"In dao");
+			e.printStackTrace();
 			msg=e.toString();
 			throw new DAOException("SQLException in getUserRole():", e);
 			

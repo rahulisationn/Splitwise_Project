@@ -10,4 +10,5 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("/")
 public class SplitwiseApplication extends Application
 {
+	
 }

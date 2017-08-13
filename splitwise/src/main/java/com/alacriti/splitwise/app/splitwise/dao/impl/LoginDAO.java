@@ -16,18 +16,19 @@ public class LoginDAO extends BaseDAO {
 	}
 	LoginDAO(){}
 	public static String login_name="";
-	public void checkUserLoginDAO(LoginModel userLogin) throws DAOException {
+	public void userLogin(LoginModel userLogin) throws DAOException {
 //		log.debugPrintCurrentMethodName();
 		Statement stmt = null;
 		ResultSet rs = null;
-		
-		
+	
 		try {
 			String login_email=userLogin.getLogin_email();
 			String password=userLogin.getPassword();
+			System.out.println("connection is "+getConnection());
 			String sqlCmd = "select password,firstname from sravanthir_splitwise_registration_table where email='"+login_email+"'";
 			stmt =getStatementCheckUserLogin(getConnection(), sqlCmd);
-			//System.out.println("reached statement");
+			System.out.println("connection is "+getConnection());
+			System.out.println("reached statement");
 			rs= stmt.executeQuery(sqlCmd);
 			if(rs.next()){
 				if(password.equals(rs.getString("password"))){
